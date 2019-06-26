@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rockets</title>
+<!-- modelos -->
+    <script src="../models/cohete.js"></script>
+    <script src="../models/propulsores.js"></script>
+    <script src="../models/addpropulsores.js"></script>
+<!-- controladores -->
+    <script src="../controllers/main.js"></script>
+    <script src="../controllers/populate.js"></script>
+<!-- vistas -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap.min.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+<!-- vistas archivos propios -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+<div class="container-fluid">
+    <header class="row mt-3">
+      <div class="col-12 text-left">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Agregar cohetes</button>
+      </div>
+    </header>
+
+    <div class="row mt-3">
+        <div class="col-12 text-left" id="contenedor_cohetes"></div>
+    </div>
+</div> 
+<!-- end container -->
+
+<!-- modal -->
+<div id="cohete_nuevo" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">COHETE NUEVO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label font-weight-bold">Id cohete:</label>
+            <input type="text" maxlength="8" class="form-control" id="id_cohete" placeholder="Introduce ID (mínimo 8 letras)" required min="8">
+          </div>
+          <ul id="lista_propulsores_modal">
+          <!-- content propulsores -->
+          </ul>
+          <p class="btn btn-primary btn-sm" onclick="nuevoPropulsorModal()">+ Añadir propulsor</p>
+          <p id="msg_propulsores"></p>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="agregarPropulsor()">Crea el cohete!</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+</body>
+</html>
